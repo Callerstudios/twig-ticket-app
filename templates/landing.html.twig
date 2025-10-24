@@ -1,0 +1,34 @@
+{% extends "base.html.twig" %}
+
+{% block title %}Welcome to TicketApp{% endblock %}
+
+{% block content %}
+<section class="hero">
+  <div class="hero-content">
+    <h1>Manage Your Tickets Effortlessly</h1>
+    <p>Track, resolve, and organize tickets with ease — all in one place.</p>
+    <div class="hero-actions">
+      <a href="/auth/login" class="btn">Login</a>
+      <a href="/auth/signup" class="btn-primary">Get Started</a>
+    </div>
+  </div>
+
+  <img src="/public/assets/wave.svg" alt="wave background" class="wave" />
+  <div class="circle-deco"></div>
+</section>
+
+<section class="features container">
+  <div class="feature-card">
+    <h3>🧾 Create Tickets</h3>
+    <p>Quickly log new tickets and track issues efficiently.</p>
+  </div>
+  <div class="feature-card">
+    <h3>📊 Monitor Progress</h3>
+    <p>Stay updated on open, in-progress, and closed tickets.</p>
+  </div>
+  <div class="feature-card">
+    <h3>🔐 Secure Access</h3>
+    <p>Authentication ensures only authorized users can manage tickets.</p>
+  </div>
+</section>
+{% endblock %}

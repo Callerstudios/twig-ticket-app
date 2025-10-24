@@ -1,0 +1,27 @@
+{% extends "base.html.twig" %}
+{% block title %}Dashboard - TicketApp{% endblock %}
+{% block content %}
+<div class="container dashboard">
+    <h2>Dashboard</h2>
+
+    <div class="stats-grid">
+        <div class="card stat open">
+            <h4>Open Tickets</h4>
+            <p>{{ stats.open }}</p>
+        </div>
+        <div class="card stat in-progress">
+            <h4>In Progress</h4>
+            <p>{{ stats.in_progress }}</p>
+        </div>
+        <div class="card stat closed">
+            <h4>Closed</h4>
+            <p>{{ stats.closed }}</p>
+        </div>
+    </div>
+
+    <a href="/tickets" class="btn">Manage Tickets</a>
+    <form action="/logout" method="POST" class="logout-form">
+        <button type="submit" class="btn btn-outline">Logout</button>
+    </form>
+</div>
+{% endblock %}

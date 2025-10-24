@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>{% block title %}TicketApp{% endblock %}</title>
+  <link rel="stylesheet" href="/assets/styles.css" />
+  <link rel="icon" href="/public/favicon.ico" />
+</head>
+<body>
+  <header class="site-header">
+    <nav class="navbar">
+      <a href="/" class="logo">🎟️ TicketApp</a>
+      <ul class="nav-links">
+        <li><a href="/">Home</a></li>
+        {% if session %}
+          <li><a href="/dashboard">Dashboard</a></li>
+          <li><a href="/logout" class="logout">Logout</a></li>
+        {% else %}
+          <li><a href="/auth/login">Login</a></li>
+          <li><a href="/auth/signup" class="btn-primary">Get Started</a></li>
+        {% endif %}
+      </ul>
+    </nav>
+  </header>
+
+  <main class="content">
+    {% block content %}{% endblock %}
+  </main>
+
+  <footer class="footer">
+    <p>&copy; {{ "now"|date("Y") }} TicketApp — All rights reserved.</p>
+  </footer>
+
+  <script src="/public/assets/app.js"></script>
+</body>
+</html>

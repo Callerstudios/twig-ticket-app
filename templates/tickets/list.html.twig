@@ -1,0 +1,29 @@
+{% extends "base.html.twig" %}
+{% block title %}Tickets - TicketApp{% endblock %}
+{% block content %}
+<div class="container tickets">
+    <div class="header-flex">
+        <h2>All Tickets</h2>
+        <a href="/tickets/create" class="btn">+ New Ticket</a>
+    </div>
+
+    {% if tickets is empty %}
+        <p>No tickets found.</p>
+    {% else %}
+        <div class="ticket-grid">
+            {% for ticket in tickets %}
+                <div class="card ticket">
+                    <h4>{{ ticket.title }}</h4>
+                    <p>{{ ticket.description|default('No description') }}</p>
+                    <span class="status {{ ticket.status }}">{{ ticket.status|capitalize }}</span>
+                    <div class="actions">
+                        <a href="/tickets/edit/{{ ticket.id }}" class="btn-sm">Edit</a>
+                        <a href="/tickets/delete/{{ ticket.id }}" class="btn-sm btn-outline" onclick="return confirm('Are you sure?')">Delete</a>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    {% endif %}
+</div>
+{% endblock %}
+    

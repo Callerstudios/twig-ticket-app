@@ -1,0 +1,32 @@
+{% extends "base.html.twig" %}
+{% block title %}{{ form_title }} - TicketApp{% endblock %}
+{% block content %}
+<div class="container ticket-form">
+    <h2>{{ form_title }}</h2>
+
+    <form method="POST" action="{{ form_action }}">
+        <div class="form-group">
+            <label>Title</label>
+            <input type="text" name="title" value="{{ ticket.title|default('') }}" required>
+            {% if error_title %}<p class="error">{{ error_title }}</p>{% endif %}
+        </div>
+
+        <div class="form-group">
+            <label>Description</label>
+            <textarea name="description">{{ ticket.description|default('') }}</textarea>
+        </div>
+
+        <div class="form-group">
+            <label>Status</label>
+            <select name="status" required>
+                <option value="open" {% if ticket.status == 'open' %}selected{% endif %}>Open</option>
+                <option value="in_progress" {% if ticket.status == 'in_progress' %}selected{% endif %}>In Progress</option>
+                <option value="closed" {% if ticket.status == 'closed' %}selected{% endif %}>Closed</option>
+            </select>
+            {% if error_status %}<p class="error">{{ error_status }}</p>{% endif %}
+        </div>
+
+        <button type="submit" class="btn">Save Ticket</button>
+    </form>
+</div>
+{% endblock %}
