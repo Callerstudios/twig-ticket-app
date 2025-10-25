@@ -1,0 +1,43 @@
+# =========================
+# Composer dependencies
+# =========================
+/vendor/
+
+# =========================
+# Node or build tools (if any added later)
+# =========================
+/node_modules/
+package-lock.json
+yarn.lock
+
+# =========================
+# OS / IDE / Editor files
+# =========================
+.DS_Store
+Thumbs.db
+ehthumbs.db
+.idea/
+.vscode/
+*.swp
+
+# =========================
+# Environment & config
+# =========================
+.env
+.env.local
+*.log
+*.cache
+
+# =========================
+# PHP-specific
+# =========================
+/composer.lock
+/.phpunit.result.cache
+.php_cs.cache
+*.sql
+*.sqlite
+
+# =========================
+# Twig cache (if you enable caching)
+# =========================
+/cache/
