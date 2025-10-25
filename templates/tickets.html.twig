@@ -1,0 +1,78 @@
+{% extends "base.html.twig" %}
+
+{% block content %}
+<section class="tickets-page container">
+  <h1>Ticket Management</h1>
+
+  <div class="ticket-form">
+    <h2>Create New Ticket</h2>
+    <form id="ticketForm">
+      <div class="form-group">
+        <label for="title">Title *</label>
+        <input type="text" id="title" name="title" placeholder="Enter ticket title" required />
+      </div>
+
+      <div class="form-group">
+        <label for="description">Description</label>
+        <textarea id="description" name="description" placeholder="Enter description (optional)"></textarea>
+      </div>
+
+      <div class="form-group">
+        <label for="status">Status *</label>
+        <select id="status" name="status" required>
+          <option value="open">Open</option>
+          <option value="in_progress">In Progress</option>
+          <option value="closed">Closed</option>
+        </select>
+      </div>
+
+      <button type="submit" class="btn-primary">Add Ticket</button>
+    </form>
+  </div>
+
+  <hr />
+
+  <div class="ticket-list">
+    <h2>Existing Tickets</h2>
+    <div id="ticketContainer" class="ticket-grid"></div>
+  </div>
+
+  <button id="logoutBtn" class="logout-btn">Logout</button>
+</section>
+<!-- ===== Edit Ticket Modal ===== -->
+<div id="editModal" class="modal-overlay hidden">
+  <div class="modal">
+    <h2>Edit Ticket</h2>
+    <form id="editTicketForm">
+      <input type="hidden" id="editTicketId" />
+
+      <div class="form-group">
+        <label for="editTitle">Title</label>
+        <input type="text" id="editTitle" required />
+      </div>
+
+      <div class="form-group">
+        <label for="editDescription">Description</label>
+        <textarea id="editDescription" rows="4" required></textarea>
+      </div>
+
+      <div class="form-group">
+        <label for="editStatus">Status</label>
+        <select id="editStatus" required>
+          <option value="open">Open</option>
+          <option value="in_progress">In Progress</option>
+          <option value="closed">Closed</option>
+        </select>
+      </div>
+
+      <div class="modal-actions">
+        <button type="button" id="cancelEdit" class="btn-secondary">Cancel</button>
+        <button type="submit" class="btn-primary">Save Changes</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+
+<div id="toast" class="toast"></div>
+{% endblock %}
