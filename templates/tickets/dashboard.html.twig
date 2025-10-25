@@ -1,0 +1,51 @@
+{% extends "base.html.twig" %}
+{% block title %}Dashboard | TicketApp{% endblock %}
+
+{% block content %}
+<section class="dashboard-section">
+  <aside class="sidebar">
+    <div class="sidebar-header">
+      <h2>TicketApp</h2>
+    </div>
+    <nav class="sidebar-nav">
+      <a href="/dashboard" class="active">Dashboard</a>
+      <a href="/tickets">Tickets</a>
+      <a href="/profile">Profile</a>
+      <a href="#" id="logoutBtn">Logout</a>
+    </nav>
+  </aside>
+
+  <main class="dashboard-main">
+    <header class="dashboard-header">
+      <h1>Welcome Back 👋</h1>
+      <p>Here’s an overview of your tickets</p>
+    </header>
+
+    <div class="stats-grid">
+      <div class="stat-card open">
+        <h3>Open Tickets</h3>
+        <p id="openCount">0</p>
+      </div>
+
+      <div class="stat-card progress">
+        <h3>In Progress</h3>
+        <p id="progressCount">0</p>
+      </div>
+
+      <div class="stat-card closed">
+        <h3>Closed Tickets</h3>
+        <p id="closedCount">0</p>
+      </div>
+    </div>
+
+    <div class="recent-tickets">
+      <h2>Recent Tickets</h2>
+      <div id="recentTicketsContainer" class="ticket-list">
+        <p class="placeholder">No tickets found. Create one to get started!</p>
+      </div>
+    </div>
+  </main>
+
+  <div id="toast" class="toast"></div>
+</section>
+{% endblock %}
